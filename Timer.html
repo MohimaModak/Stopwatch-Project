@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timer using by javascript html css</title>
-    <link rel="stylesheet" href="Timer.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Timer</title>
+    <link rel="stylesheet" href="Timer.css" />
+    <style>
+      
+    </style>
+  </head>
+  <body>
     <div class="middle">
-       <div class="background">
-        <h1 class="heading">Stop Watch</h1>
+      <div class="background">
+        <h1>Simple Timer</h1>
         <div id="timer">00:00:00</div>
-        <div>
-            <button>Start</button>
-            <button>Stop</button>
-            <button>Reset</button>
-        </div>
-       </div>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="stopTimer()">Stop</button>
+        <button onclick="resetTimer()">Reset</button>
+      </div>
     </div>
-</body>
+
+    <script>
+      let timerInterval;
+      let seconds = 0;
+
+      function startTimer() {
+        clearInterval(timerInterval);
+        timerInterval = setInterval(updateTimer, 1000);
+      }
+
+      function stopTimer() {
+        clearInterval(timerInterval);
+      }
+
+      function resetTimer() {
+        clearInterval(timerInterval);
+        seconds = 0;
+        document.getElementById("timer").innerText = formatTime(seconds);
+      }
+
+      function updateTimer() {
+        seconds++;
+        document.getElementById("timer").innerText = formatTime(seconds);
+      }
+
+      function formatTime(time) {
+        const hours = Math.floor(time / 3600);
+        const minutes = Math.floor((time % 3600) / 60);
+        const seconds = Math.floor(time % 60);
+        return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(
+          2,
+          "0"
+        )}:${String(seconds).padStart(2, "0")}`;
+      }
+    </script>
+  </body>
 </html>
