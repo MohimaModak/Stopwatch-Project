@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.background{
+    margin-top: 16rem;
+    text-align: center;
+    box-shadow: 0px 5px 5px 5px rgb(235, 230, 230);
+    width: 23rem;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.middle{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading{
+    font-size: 3rem;
+}
+
+#timer{
+    font-size: 3rem;
+    padding: 15px;font-weight: 600
+}
+
+button{
+    padding: 5px 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 105px;
+}
